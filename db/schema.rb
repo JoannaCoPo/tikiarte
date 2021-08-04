@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_04_015719) do
+ActiveRecord::Schema.define(version: 2021_08_04_021800) do
 
   create_table "images", force: :cascade do |t|
     t.string "submission_status"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2021_08_04_015719) do
     t.string "optional_details"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "kids", force: :cascade do |t|
@@ -40,5 +42,6 @@ ActiveRecord::Schema.define(version: 2021_08_04_015719) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "images", "users"
   add_foreign_key "kids", "users"
 end
