@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_08_04_031622) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "images", force: :cascade do |t|
     t.string "submission_status"
     t.string "title"
@@ -19,8 +22,8 @@ ActiveRecord::Schema.define(version: 2021_08_04_031622) do
     t.string "optional_details"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
-    t.integer "kid_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "kid_id", null: false
     t.index ["kid_id"], name: "index_images_on_kid_id"
     t.index ["user_id"], name: "index_images_on_user_id"
   end
@@ -29,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_08_04_031622) do
     t.string "first_name"
     t.string "last_name"
     t.string "optional_details"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_kids_on_user_id"
