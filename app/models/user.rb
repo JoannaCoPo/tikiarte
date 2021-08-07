@@ -1,4 +1,9 @@
 class User < ApplicationRecord
   has_many :kids, dependent: :destroy
   has_many :images, dependent: :destroy
+
+  validates :email, presence: true, uniqueness: true
+  validates :password_digest, presence: true
+
+  has_secure_password
 end
