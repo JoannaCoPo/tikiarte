@@ -34,7 +34,7 @@ ol li {
    <%= button_to "Log out", '/logout', method: :delete %>
   <% else %>
    <p>I want this service, sign me up!</p>
-   <%= link_to "Register", new_user_path %>
+   <%= link_to "Register", new_register_path %>
    <p>I already have an account.</p>
    <%= link_to "Log me in!", '/login', method: :get %>
 <% end %>
