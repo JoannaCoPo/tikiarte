@@ -7,11 +7,13 @@ RSpec.describe "Welcome Page" do
     end
 
     it 'displays a welcome message and app description to the user' do
-      welcome_message = "Welcome to tikiarte, a safe platform to showcase artwork created by kids. MORE DETAILS"
-      description = "EXPLAIN HOW IT WORKS"
+      within '#welcome'do
+        welcome_message = "Welcome to tikiarte, a safe platform to showcase artwork created by kids. MORE DETAILS"
+        description = "EXPLAIN HOW IT WORKS"
 
-      expect(page).to have_content(welcome_message)
-      expect(page).to have_content(description)
+        expect(page).to have_content(welcome_message)
+        expect(page).to have_content(description)
+      end
     end
 
     it 'lists steps to be able to upload images of artwork' do
