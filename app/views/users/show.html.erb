@@ -1,1 +1,16 @@
 <p><%= link_to "Log Out", '/logout', method: :delete %></p>
+<h1>MY DASHBOARD</h1>
+<h4>To upload an image of your child's artwork, add the child to your account, then select the button to navigate to their indiviual Art Page below their name. IMPROVE THIS LATER</h4>
+
+<section id="kids">
+  <h3>MY KIDDOS</h3>
+  <% if current_user.kids.count > 0  %>
+    <% current_user.kids.each do |kid| %>
+      <p><%= kid.first_name %></p>
+      <p><%= button_to "#{kid.first_name}'s Art Page'", kid_path, method: :get %></p>
+    <% end %>
+  <% else %>
+    <p>You haven't added any kids to your account yet.</p>
+    <%= button_to "Add kid", new_kid_path, method: :get %>
+  <% end %>
+</section>
