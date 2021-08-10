@@ -20,7 +20,7 @@ RSpec.describe "Login Page" do
       end
 
       context 'valid login,' do
-        it 'it allows registered users to log in with correct credentials' do
+        it 'allows registered users to log in and out with correct credentials' do
           click_link 'Log me in!'
 
           expect(current_path).to eq(login_path)
@@ -31,6 +31,11 @@ RSpec.describe "Login Page" do
 
           expect(current_path).to eq(dashboard_path)
           expect(page).to have_content("Welcome back, #{@user_1.first_name}!")
+
+          click_link("Log Out")
+
+          expect(current_path).to eq(root_path)
+          expect(page).to_not have_link("Log Out")
         end
       end
 
@@ -44,7 +49,7 @@ RSpec.describe "Login Page" do
 
           fill_in :email, with: @user_1.email
           fill_in :password, with: incorrect_password
-          save_and_open_page
+
           click_button('Log In')
 
           expect(current_path).to eq(login_path)
