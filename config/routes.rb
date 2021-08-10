@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   resource :register, controller: :users, only: [:new, :create]
 
-  resource :login, controller: :sessions, only: [:new, :create]
-  resource :logout, controller: :sessions, only: :destroy
+  get '/login', to:'sessions#new'
+  post '/login', to:'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   get '/dashboard', to: 'users#show'
 end
