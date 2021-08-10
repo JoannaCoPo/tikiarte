@@ -29,7 +29,7 @@ RSpec.describe 'Registration Page' do
           click_button 'Register'
         end
 
-        expect(current_path).to eq dashboard_path
+        expect(current_path).to eq(dashboard_path)
 
         within '#flash-message' do
           expect(page).to have_content("Welcome Alexis")
