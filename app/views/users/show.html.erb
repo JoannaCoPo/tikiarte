@@ -7,7 +7,7 @@
   <% if current_user.kids.count > 0  %>
     <% current_user.kids.each do |kid| %>
       <p><%= kid.first_name %></p>
-      <p><%= button_to "#{kid.first_name}'s Art Page'", kid_path, method: :get %></p>
+      <p><%= button_to "#{kid.first_name}'s Art Page", kid_path, method: :get %></p>
     <% end %>
   <% else %>
     <p>You haven't added any kids to your account yet.</p>
