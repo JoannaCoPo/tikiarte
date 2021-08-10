@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get '/dashboard', to: 'users#show'
+
+  resource :kid, only: [:show, :new, :create]
 end
