@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @new_user.save
       authorize @new_user
       flash[:alert] = "Welcome #{@new_user.first_name}!"
-      redirect_to dashboard_path
+      redirect_to user_path
     else
       flash[:alert] = 'User account not created, please try again.'
       redirect_to new_register_path

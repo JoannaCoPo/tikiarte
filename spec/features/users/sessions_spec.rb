@@ -29,7 +29,7 @@ RSpec.describe "Login Page" do
           fill_in :password, with: @user_1.password
           click_button('Log In')
 
-          expect(current_path).to eq(dashboard_path)
+          expect(current_path).to eq(user_path)
           expect(page).to have_content("Welcome back, #{@user_1.first_name}!")
 
           click_link("Log Out")
