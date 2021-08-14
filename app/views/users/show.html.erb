@@ -7,7 +7,7 @@
   <% if current_user.kids.count > 0  %>
     <% current_user.kids.each do |kid| %>
       <p><%= kid.first_name %></p>
-      <p><%= button_to "#{kid.first_name}'s Art Page", user_kid_path, method: :get %></p>
+      <p><%= button_to "#{kid.first_name}'s Art Page", user_kid_path(kid.id), method: :get %></p>
     <% end %>
     <%= button_to "Add another kid", new_user_kid_path, method: :get %>
   <% else %>

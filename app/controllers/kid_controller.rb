@@ -1,4 +1,4 @@
-class KidsController < ApplicationController
+class KidController < ApplicationController
   def new
     @new_kid = Kid.new
   end
@@ -17,10 +17,13 @@ class KidsController < ApplicationController
   end
 
   def show
+    # @kid = current_user.kids.find(params[:id])
+    @kid = Kid.find(params[:id])
   end
 
   private
 
   def kid_params
-    params.require(:kid).permit(:first_name, :last_name)  end
+    params.require(:kid).permit(:first_name, :last_name)
+  end
 end

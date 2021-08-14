@@ -1,7 +1,7 @@
 <h2>Add kid to your account:</h2>
 <div class='row justify-content-md-center'>
   <div class='col-sm-6'>
-    <%= form_with model: @new_kid, url: user_kid_path, local: true do |form| %>
+    <%= form_with model: @new_kid, url: "/user/kid/#{@new_kid.id}", local: true do |form| %>
       <section id="new">
       <div class='form-group'>
         <%= form.label :first_name, 'First Name: ' %>

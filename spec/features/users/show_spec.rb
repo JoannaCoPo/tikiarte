@@ -23,7 +23,7 @@ RSpec.describe "Show Page" do
 
         click_button(@kid_1.first_name)
 
-        expect(current_path).to eq(user_kid_path)
+        expect(current_path).to eq(user_kid_path(@kid_1.id))
       end
     end
 
