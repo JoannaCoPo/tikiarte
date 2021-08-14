@@ -1,1 +1,10 @@
-<h1><%= @kid.first_name %></h1>
+<h1><%= @kid.first_name %>'s Artwork</h1>
+<%= form_with model: @kid, url: user_kid_path(@kid.id), local: true do |f| %>
+  <%= f.text_field :label, placeholder: 'Enter Artwork title here' %>
+  <%= f.file_field :images, multiple: true %>
+  <%= f.submit "Upload" %>
+<% end %>
+
+<%= @kid.images.each do |image| %>
+  <p><image src="<%= (url_for(image)) %>"></p>
+<% end %>

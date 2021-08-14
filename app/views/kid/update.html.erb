@@ -1,0 +1,5 @@
+<h1><%= @kid.first_name %>'s Artwork</h1>
+
+<%= @kid.images.each do |image| %>
+  <p><image src="<%= (url_for(image)) %>"></p>
+<% end %>

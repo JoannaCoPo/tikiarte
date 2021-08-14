@@ -17,13 +17,20 @@ class KidController < ApplicationController
   end
 
   def show
-    # @kid = current_user.kids.find(params[:id])
     @kid = Kid.find(params[:id])
+  end
+
+  def update
+    @kid = Kid.find(params[:id])
+    @kid.images.attach(params[:images])
+    # if @kid.images.attached?
+    #   redirect_to user_kid_path(@kid.id)
+    # end
   end
 
   private
 
   def kid_params
-    params.require(:kid).permit(:first_name, :last_name)
+    params.require(:kid).permit(:first_name, :last_name, :image)
   end
 end
